@@ -549,7 +549,8 @@ void testHash ( const char * name )
 
 int main ( int argc, char ** argv )
 {
-  const char * hashToTest = "murmur3a";
+  // { MurmurHash3_x86_128, 128, 0xB3ECE62A, "Murmur3C" },
+  const char * hashToTest = "murmur3c";
 
   if(argc < 2)
   {
@@ -568,20 +569,20 @@ int main ( int argc, char ** argv )
 
   int timeBegin = clock();
 
-  g_testAll = true;
+  // g_testAll = true;
 
-  //g_testSanity = true;
-  //g_testSpeed = true;
-  //g_testAvalanche = true;
-  //g_testBIC = true;
-  //g_testCyclic = true;
-  //g_testTwoBytes = true;
-  //g_testDiff = true;
-  //g_testDiffDist = true;
-  //g_testSparse = true;
-  //g_testPermutation = true;
-  //g_testWindow = true;
-  //g_testZeroes = true;
+  g_testSanity = true;
+  // g_testSpeed = true;
+  // g_testAvalanche = true;
+  // g_testBIC = true;
+  // g_testCyclic = true;
+  // g_testTwoBytes = true;
+  // g_testDiff = true;
+  // g_testDiffDist = true;
+  // g_testSparse = true;
+  // g_testPermutation = true;
+  // g_testWindow = true;
+  // g_testZeroes = true;
 
   testHash(hashToTest);
 
