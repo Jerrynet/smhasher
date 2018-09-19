@@ -33,5 +33,13 @@ add_executable(
   main.cpp
 )
 
-set_target_properties(SMHasher PROPERTIES LINK_FLAGS "-s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1 -s ASSERTIONS=1")
+string(CONCAT LINK_FLAGS 
+  " -s WASM=1"
+  " -s ALLOW_MEMORY_GROWTH=1"
+  " -s MODULARIZE=1"
+  " -s ASSERTIONS=1"
+  " -s EXPORTED_FUNCTIONS='[\"_reference_implementation\"]'"
+  " -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"ccall\", \"cwrap\", \"UTF8ToString\", \"Pointer_stringify\"]'"
+)
 
+set_target_properties(SMHasher PROPERTIES LINK_FLAGS ${LINK_FLAGS})
