@@ -9,6 +9,8 @@
 
 #include "MurmurHash3.h"
 #include <stdio.h>
+#include <string.h>
+
 //-----------------------------------------------------------------------------
 // Platform-specific functions and macros
 
@@ -334,10 +336,16 @@ void MurmurHash3_x64_128 ( const void * key, const int len,
 //-----------------------------------------------------------------------------
 
 extern "C" {
-
   char * reference_implementation (const char * input) {
-    printf("Input: %s\n", input);
-    return "Output: महसुस";
-  }
 
+    printf("Input: %s, length: %lu, sizeof: %lu\n", input, strlen(input), sizeof(input));
+    uint64_t buffer[2];
+    MurmurHash3_x86_128(input, strlen(input), 0, &buffer);
+
+    char *output = new char[32];
+    sprintf(output, "%llx%llx", buffer[0], buffer[1]);
+    // printf("Hashed %s to 0x%s\n", input, output);
+
+    return output;
+  }
 }
