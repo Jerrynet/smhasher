@@ -569,9 +569,9 @@ int main ( int argc, char ** argv )
 
   int timeBegin = clock();
 
-  // g_testAll = true;
+  g_testAll = true;
 
-  g_testSanity = true;
+  // g_testSanity = true;
   // g_testSpeed = true;
   // g_testAvalanche = true;
   // g_testBIC = true;

@@ -1,12 +1,13 @@
+#!/usr/bin/env bash
+
 set -e
 
-TARGET=website/wasm
-cd $TARGET
+TARGET=wasm
 
+cd $TARGET
 make
 
-echo "/* eslint-disable */" > ../src/SMHasher.js
-cat SMHasher.js >> ../src/SMHasher.js
-cp SMHasher.wasm ../public
+# disable es-lint on the generated minified module file
+echo "/* eslint-disable */" | cat - SMHasher.js > /tmp/out && mv /tmp/out SMHasher.js
 
 cd -

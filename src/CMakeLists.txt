@@ -30,7 +30,7 @@ add_executable(
   SuperFastHash.cpp
   Types.cpp
   PMurHash.c
-  main.cpp
+  wasm.cpp
 )
 
 string(CONCAT LINK_FLAGS 
@@ -38,8 +38,8 @@ string(CONCAT LINK_FLAGS
   " -s ALLOW_MEMORY_GROWTH=1"
   " -s MODULARIZE=1"
   " -s ASSERTIONS=1"
-  " -s EXPORTED_FUNCTIONS='[\"_reference_implementation\"]'"
-  " -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"ccall\", \"cwrap\", \"UTF8ToString\", \"Pointer_stringify\"]'"
+  " -s EXPORTED_FUNCTIONS='[\"_MurmurHash3_x86_128_reference\", \"_MurmurHash3_x86_32_reference\", \"_MurmurHash3_x64_128_reference\"]'"
+  " -s EXTRA_EXPORTED_RUNTIME_METHODS='[\"ccall\", \"cwrap\"]'"
 )
 
 set_target_properties(SMHasher PROPERTIES LINK_FLAGS ${LINK_FLAGS})
