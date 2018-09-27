@@ -9,8 +9,7 @@ The original `src/CMakeLists.txt` has been changed:
 
 The project builds successfully; I've used it in an evaluation of JS implementations of murmurhash - [you can try it out here](https://cimi.io/murmurhash3js-revisited).
 
-SMHasher uses `CMake` so with the [emscripten CMAKE toolchain file](https://github.com/kripken/emscri
-pten/blob/incoming/cmake/Modules/Platform/Emscripten.cmake) we generate the build files and then run `make` to get the binary wasm file and the generated JS module file.
+SMHasher uses `CMake` so with the [emscripten CMAKE toolchain file](https://github.com/kripken/emscripten/blob/incoming/cmake/Modules/Platform/Emscripten.cmake) we generate the build files and then run `make` to get the binary wasm file and the generated JS module file.
 
 For convenience, two build scripts are included in the root of this fork:
 
